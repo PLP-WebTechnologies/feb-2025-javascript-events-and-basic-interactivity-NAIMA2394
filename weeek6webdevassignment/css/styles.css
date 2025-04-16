@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#thankYouMsg {
+    color: green;
+    font-weight: bold;
+}

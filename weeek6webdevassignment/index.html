@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>showcasing js</title>
+</head>
+<body>
+  <h1>Form</h1>
+  <form id="demoForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required placeholder="Enter your name"><br>
+    <span class="error" id="nameError">Please enter your name.</span><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required placeholder="Enter your email"><br>
+    <span class="error" id="emailError">Please enter a valid email.</span><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="thankYouMsg" class="hidden">Thank you for submitting the form!</p>
+
+  <script>
+    const form = document.getElementById('demoForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const thankYouMsg = document.getElementById('thankYouMsg');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      let valid = true;
+
+      // Validate Name
+      if (nameInput.value.trim() === '') {
+        nameError.style.display = 'inline';
+        valid = false;
+      } else {
+        nameError.style.display = 'none';
+      }
+
+      // Validate Email
+      if (!emailInput.value.includes('@')) {
+        emailError.style.display = 'inline';
+        valid = false;
+      } else {
+        emailError.style.display = 'none';
+      }
+
+      if (valid) {
+        form.classList.add('hidden');
+        thankYouMsg.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
